@@ -3,5 +3,6 @@
   environment.systemPackages = with pkgs;[
   obsidian
   krita
+  scilab-bin
   ];
 }

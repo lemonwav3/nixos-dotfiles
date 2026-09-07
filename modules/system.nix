@@ -16,6 +16,9 @@
     rofi
     wofi
 
+    # Browsers
+    librewolf
+
     # System utils 
     btop # system monitor
     dysk # storage monitor
