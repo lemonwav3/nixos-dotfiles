@@ -29,5 +29,6 @@
     grim # Screenshots?
     slurp # Screenshots
     wl-clipboard
+    fastfetch
   ];
 }
