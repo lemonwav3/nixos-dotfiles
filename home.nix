@@ -173,31 +173,31 @@
       {
         "label" : "lock",
         "action" : "loginctl lock-session",
-        "text" : "",
+        "text" : "Lock",
         "keybind" : "l"
       }
       {
         "label" : "logout",
-        "action" : "hyprctl dispatch exit",
-        "text" : "",
+        "action" : "loginctl terminate-user $USER",
+        "text" : "Logout",
         "keybind" : "e"
       }
       {
         "label" : "suspend",
         "action" : "systemctl suspend",
-        "text" : "",
+        "text" : "Suspend",
         "keybind" : "u"
       }
       {
         "label" : "shutdown",
         "action" : "systemctl poweroff",
-        "text" : "",
+        "text" : "Shutdown",
         "keybind" : "s"
       }
       {
         "label" : "reboot",
         "action" : "systemctl reboot",
-        "text" : "",
+        "text" : "Reboot",
         "keybind" : "r"
       }
     '';
@@ -205,35 +205,41 @@
   home.file.".config/wlogout/style.css" = {
     text = ''
       * {
+        background-image: none;
+        box-shadow: none;
         font-family: "JetBrainsMono Nerd Font", monospace;
-        font-size: 24px;
+        font-size: 16px;
         font-weight: bold;
       }
       window {
-        background-color: #${config.lib.stylix.colors.base00};
-        opacity: 0.95;
+        background-color: rgba(40, 40, 40, 0.9);
       }
       button {
-        background-color: #${config.lib.stylix.colors.base01};
-        border: 2px solid #${config.lib.stylix.colors.base03};
+        border-radius: 0;
+        border-color: #${config.lib.stylix.colors.base03};
+        text-decoration-color: #${config.lib.stylix.colors.base07};
         color: #${config.lib.stylix.colors.base07};
-        margin: 10px;
-        border-radius: 10px;
-        padding: 24px;
+        background-color: #${config.lib.stylix.colors.base01};
+        border-style: solid;
+        border-width: 1px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 40%;
+        padding: 32px;
       }
-      button:hover {
+      button:focus, button:active, button:hover {
         color: #${config.lib.stylix.colors.base00};
-        border-color: #${config.lib.stylix.colors.base00};
+        outline-style: none;
       }
-      #lock { color: #${config.lib.stylix.colors.base0D}; }
+      #lock { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png")); }
       #lock:hover { background-color: #${config.lib.stylix.colors.base0D}; }
-      #logout { color: #${config.lib.stylix.colors.base0C}; }
+      #logout { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png")); }
       #logout:hover { background-color: #${config.lib.stylix.colors.base0C}; }
-      #suspend { color: #${config.lib.stylix.colors.base0A}; }
+      #suspend { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png")); }
       #suspend:hover { background-color: #${config.lib.stylix.colors.base0A}; }
-      #shutdown { color: #${config.lib.stylix.colors.base08}; }
+      #shutdown { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png")); }
       #shutdown:hover { background-color: #${config.lib.stylix.colors.base08}; }
-      #reboot { color: #${config.lib.stylix.colors.base09}; }
+      #reboot { background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png")); }
       #reboot:hover { background-color: #${config.lib.stylix.colors.base09}; }
     '';
   };
