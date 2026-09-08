@@ -4,5 +4,6 @@
   obsidian
   krita
   scilab-bin
+  onlyoffice-desktopeditors
   ];
 }
