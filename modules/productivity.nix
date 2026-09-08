@@ -6,5 +6,6 @@
   scilab-bin
   onlyoffice-desktopeditors
   thunderbird
+  bitwarden-desktop
   ];
 }
