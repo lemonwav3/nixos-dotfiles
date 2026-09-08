@@ -18,6 +18,13 @@
     url = "https://w.wallhaven.cc/full/39/wallhaven-3911w9.jpg";
     sha256 = "sha256-dBmKkLR8yI1W7d9IRTOaErHf0KApSq0UsY5LWxAaSuA=";
   };
+  stylix.fonts.monospace = {
+    name = "JetBrainsMono Nerd Font";
+    package = pkgs.nerd-fonts.jetbrains-mono;
+  };
+
+  # Fonts
+  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

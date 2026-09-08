@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.username = "tali";
@@ -158,8 +158,71 @@
     force = true;
   };
 
-  home.file.".config/foot" = {
-    source = ./config/foot;
-    force = true;
+  programs.foot = {
+    enable = true;
+    settings.main = {
+      font = lib.mkForce "JetBrainsMono Nerd Font:size=16";
+      pad = "4x4";
+      alpha = 0.9;
+      "initial-color-theme" = "dark";
+    };
+  };
+
+  home.file.".config/wlogout/layout" = {
+    text = ''
+      {
+        "label" : "lock",
+        "action" : "loginctl lock-session",
+        "text" : "",
+        "keybind" : "l"
+      }
+      {
+        "label" : "logout",
+        "action" : "hyprctl dispatch exit",
+        "text" : "",
+        "keybind" : "e"
+      }
+      {
+        "label" : "suspend",
+        "action" : "systemctl suspend",
+        "text" : "",
+        "keybind" : "u"
+      }
+      {
+        "label" : "shutdown",
+        "action" : "systemctl poweroff",
+        "text" : "",
+        "keybind" : "s"
+      }
+      {
+        "label" : "reboot",
+        "action" : "systemctl reboot",
+        "text" : "",
+        "keybind" : "r"
+      }
+    '';
+  };
+  home.file.".config/wlogout/style.css" = {
+    text = ''
+      * {
+        font-family: "JetBrainsMono Nerd Font", monospace;
+        font-size: 18px;
+      }
+      window {
+        background-color: #${config.lib.stylix.colors.base00};
+        opacity: 0.9;
+      }
+      button {
+        background-color: #${config.lib.stylix.colors.base01};
+        border: 2px solid #${config.lib.stylix.colors.base03};
+        color: #${config.lib.stylix.colors.base07};
+        margin: 8px;
+        border-radius: 8px;
+      }
+      button:hover {
+        background-color: #${config.lib.stylix.colors.base0B};
+        color: #${config.lib.stylix.colors.base00};
+      }
+    '';
   };
 }
