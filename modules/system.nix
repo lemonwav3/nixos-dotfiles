@@ -24,7 +24,6 @@
     dysk # storage monitor
     opencode # LLM frontend
     git
-    waybar
     hyprpaper
     grim # Screenshots?
     slurp # Screenshots
