@@ -173,31 +173,31 @@
       {
         "label" : "lock",
         "action" : "loginctl lock-session",
-        "text" : "",
+        "text" : "",
         "keybind" : "l"
       }
       {
         "label" : "logout",
         "action" : "hyprctl dispatch exit",
-        "text" : "",
+        "text" : "",
         "keybind" : "e"
       }
       {
         "label" : "suspend",
         "action" : "systemctl suspend",
-        "text" : "",
+        "text" : "",
         "keybind" : "u"
       }
       {
         "label" : "shutdown",
         "action" : "systemctl poweroff",
-        "text" : "",
+        "text" : "",
         "keybind" : "s"
       }
       {
         "label" : "reboot",
         "action" : "systemctl reboot",
-        "text" : "",
+        "text" : "",
         "keybind" : "r"
       }
     '';
@@ -206,23 +206,35 @@
     text = ''
       * {
         font-family: "JetBrainsMono Nerd Font", monospace;
-        font-size: 18px;
+        font-size: 24px;
+        font-weight: bold;
       }
       window {
         background-color: #${config.lib.stylix.colors.base00};
-        opacity: 0.9;
+        opacity: 0.95;
       }
       button {
         background-color: #${config.lib.stylix.colors.base01};
         border: 2px solid #${config.lib.stylix.colors.base03};
         color: #${config.lib.stylix.colors.base07};
-        margin: 8px;
-        border-radius: 8px;
+        margin: 10px;
+        border-radius: 10px;
+        padding: 24px;
       }
       button:hover {
-        background-color: #${config.lib.stylix.colors.base0B};
         color: #${config.lib.stylix.colors.base00};
+        border-color: #${config.lib.stylix.colors.base00};
       }
+      #lock { color: #${config.lib.stylix.colors.base0D}; }
+      #lock:hover { background-color: #${config.lib.stylix.colors.base0D}; }
+      #logout { color: #${config.lib.stylix.colors.base0C}; }
+      #logout:hover { background-color: #${config.lib.stylix.colors.base0C}; }
+      #suspend { color: #${config.lib.stylix.colors.base0A}; }
+      #suspend:hover { background-color: #${config.lib.stylix.colors.base0A}; }
+      #shutdown { color: #${config.lib.stylix.colors.base08}; }
+      #shutdown:hover { background-color: #${config.lib.stylix.colors.base08}; }
+      #reboot { color: #${config.lib.stylix.colors.base09}; }
+      #reboot:hover { background-color: #${config.lib.stylix.colors.base09}; }
     '';
   };
 }
