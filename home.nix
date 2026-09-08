@@ -20,7 +20,7 @@
     };
   };
 
-  home.packages = [ pkgs.wlogout ];
+  home.packages = [ pkgs.wlogout pkgs.brightnessctl ];
 
   programs.waybar = {
     enable = true;
@@ -30,36 +30,57 @@
       position = "top";
       height = 30;
       spacing = 4;
-      modules-left = [ "custom/launcher" "custom/sep" "cpu" "custom/sep" "memory" ];
-      modules-center = [ "hyprland/workspaces" ];
-      modules-right = [ "clock" "custom/sep" "custom/powermenu" "tray" ];
-      "custom/launcher" = {
-        format = " ";
-        on-click = "rofi -show drun";
-      };
-      "custom/powermenu" = {
-        format = " ";
+      modules-left = [
+        "custom/logo"
+        "custom/sep"
+        "battery"
+        "custom/sep"
+        "backlight"
+        "custom/sep"
+        "pulseaudio"
+        "custom/sep"
+        "hyprland/workspaces"
+      ];
+      modules-center = [ ];
+      modules-right = [ "network" "custom/sep" "clock" ];
+      "custom/logo" = {
+        format = "  ";
         on-click = "wlogout";
       };
       "custom/sep" = {
         format = "|";
         interval = 0;
       };
+      battery = {
+        format = "{capacity}% {icon}";
+        format-charging = "{capacity}% ";
+        format-plugged = "{capacity}% ";
+        format-icons = [ "" "" "" "" "" ];
+      };
+      backlight = {
+        format = "{percent}% ";
+        "on-scroll-up" = "brightnessctl set 1%+";
+        "on-scroll-down" = "brightnessctl set 1%-";
+      };
+      pulseaudio = {
+        format = "{volume}% {icon}";
+        format-muted = " MUTE";
+        format-icons = {
+          default = [ "" "" ];
+        };
+        "on-click" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "on-scroll-up" = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+";
+        "on-scroll-down" = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-";
+      };
       "hyprland/workspaces" = {
         format = "{name}";
       };
+      network = {
+        format = "Online";
+        format-disconnected = "Disconnected";
+      };
       clock = {
         format = "{:%a %d %b %H:%M}";
-      };
-      cpu = {
-        format = "CPU: {usage}%";
-        tooltip = false;
-      };
-      memory = {
-        format = "Mem: {used}GiB";
-      };
-      tray = {
-        spacing = 10;
       };
     }
     ];
@@ -84,24 +105,50 @@
       #workspaces button.urgent {
         background: #${config.lib.stylix.colors.base08};
       }
-      #custom-launcher, #clock, #cpu, #memory, #custom-powermenu, #tray {
+      #custom-logo, #battery, #backlight, #pulseaudio, #network, #clock {
         padding: 0 10px;
         color: #${config.lib.stylix.colors.base07};
       }
       #custom-sep {
         color: #${config.lib.stylix.colors.base03};
       }
-      #clock {
+      #custom-logo {
         color: #${config.lib.stylix.colors.base0A};
         border-bottom: 3px solid #${config.lib.stylix.colors.base0A};
       }
-      #cpu {
+      #battery {
+        color: #${config.lib.stylix.colors.base0C};
+        border-bottom: 3px solid #${config.lib.stylix.colors.base0C};
+      }
+      #battery.warning {
+        color: #${config.lib.stylix.colors.base0A};
+        border-bottom: 3px solid #${config.lib.stylix.colors.base0A};
+      }
+      #battery.critical {
+        color: #${config.lib.stylix.colors.base08};
+        border-bottom: 3px solid #${config.lib.stylix.colors.base08};
+      }
+      #backlight {
+        color: #${config.lib.stylix.colors.base0A};
+        border-bottom: 3px solid #${config.lib.stylix.colors.base0A};
+      }
+      #pulseaudio {
         color: #${config.lib.stylix.colors.base0B};
         border-bottom: 3px solid #${config.lib.stylix.colors.base0B};
       }
-      #memory {
-        color: #${config.lib.stylix.colors.base0E};
-        border-bottom: 3px solid #${config.lib.stylix.colors.base0E};
+      #pulseaudio.muted {
+        color: #${config.lib.stylix.colors.base08};
+      }
+      #network {
+        color: #${config.lib.stylix.colors.base0D};
+        border-bottom: 3px solid #${config.lib.stylix.colors.base0D};
+      }
+      #network.disconnected {
+        background: #${config.lib.stylix.colors.base08};
+      }
+      #clock {
+        color: #${config.lib.stylix.colors.base0A};
+        border-bottom: 3px solid #${config.lib.stylix.colors.base0A};
       }
     '';
   };
