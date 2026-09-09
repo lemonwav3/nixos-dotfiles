@@ -13,6 +13,7 @@
   stylix.enable = true;
   stylix.autoEnable = true;
   stylix.polarity = "dark";
+  stylix.opacity.terminal = 0.9;
   stylix.base16Scheme = import ./themes/gruvbox-dark-medium.nix;
   stylix.image = pkgs.fetchurl {
     url = "https://w.wallhaven.cc/full/39/wallhaven-3911w9.jpg";
