@@ -44,7 +44,7 @@
       modules-center = [ ];
       modules-right = [ "network" "custom/sep" "clock" ];
       "custom/logo" = {
-        format = "  ";
+        format = "  ";
         on-click = "wlogout";
       };
       "custom/sep" = {
@@ -53,17 +53,17 @@
       };
       battery = {
         format = "{capacity}% {icon}";
-        format-charging = "{capacity}% ";
-        format-plugged = "{capacity}% ";
+        format-charging = "  {capacity}%";
+        format-plugged = "  {capacity}%";
         format-icons = [ "" "" "" "" "" ];
       };
       backlight = {
-        format = "{percent}% ";
+        format = "  {percent}%";
         "on-scroll-up" = "brightnessctl set 1%+";
         "on-scroll-down" = "brightnessctl set 1%-";
       };
       pulseaudio = {
-        format = "{volume}% {icon}";
+        format = "{icon} {volume}%";
         format-muted = " MUTE";
         format-icons = {
           default = [ "" "" ];
