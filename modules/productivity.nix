@@ -7,5 +7,6 @@
   onlyoffice-desktopeditors
   thunderbird
   bitwarden-desktop
+  megasync
   ];
 }
