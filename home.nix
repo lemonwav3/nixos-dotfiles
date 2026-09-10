@@ -13,9 +13,9 @@
 
   programs.git = {
     enable = true;
-    userName = "Tali";
-    userEmail = "example@example.com";
-    extraConfig = {
+    settings = {
+      user.name = "Tali";
+      user.email = "example@example.com";
       init.defaultBranch = "main";
     };
   };
@@ -44,7 +44,7 @@
       modules-center = [ ];
       modules-right = [ "network" "custom/sep" "clock" ];
       "custom/logo" = {
-        format = "  ";
+        format = " ";
         on-click = "wlogout";
       };
       "custom/sep" = {
@@ -52,13 +52,13 @@
         interval = 0;
       };
       battery = {
-        format = "{capacity}% {icon}";
+        format = "{icon} {capacity}%";
         format-charging = "  {capacity}%";
         format-plugged = "  {capacity}%";
-        format-icons = [ "" "" "" "" "" ];
+        format-icons = [ " " " " " " " " " " ];
       };
       backlight = {
-        format = "  {percent}%";
+        format = "   {percent}% ";
         "on-scroll-up" = "brightnessctl set 1%+";
         "on-scroll-down" = "brightnessctl set 1%-";
       };
@@ -66,7 +66,7 @@
         format = "{icon} {volume}%";
         format-muted = " MUTE";
         format-icons = {
-          default = [ "" "" ];
+          default = [ " " " " ];
         };
         "on-click" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "on-scroll-up" = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+";
