@@ -24,6 +24,9 @@
 
   programs.waybar = {
     enable = true;
+    package = pkgs.waybar.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [ ./patches/waybar-lua-dispatch.patch ];
+    });
     settings = [
       {
       layer = "top";
@@ -100,9 +103,6 @@
       };
       "hyprland/workspaces" = {
         format = "{name}";
-        persistent-workspaces = {
-          "*" = 10;
-        };
       };
       network = {
         format = "Online";
