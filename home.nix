@@ -41,7 +41,13 @@
         "custom/sep"
         "hyprland/workspaces"
       ];
-      modules-center = [ ];
+      modules-center = [
+        "custom/librewolf"
+        "custom/thunderbird"
+        "custom/obsidian"
+        "custom/krita"
+        "custom/steam"
+      ];
       modules-right = [ "network" "custom/sep" "clock" ];
       "custom/logo" = {
         format = " ";
@@ -50,6 +56,26 @@
       "custom/sep" = {
         format = "|";
         interval = 0;
+      };
+      "custom/librewolf" = {
+        format = " ";
+        on-click = "librewolf";
+      };
+      "custom/thunderbird" = {
+        format = " ";
+        on-click = "thunderbird";
+      };
+      "custom/obsidian" = {
+        format = " ";
+        on-click = "obsidian";
+      };
+      "custom/krita" = {
+        format = " ";
+        on-click = "krita";
+      };
+      "custom/steam" = {
+        format = " ";
+        on-click = "steam";
       };
       battery = {
         format = "{icon} {capacity}%";
@@ -111,6 +137,13 @@
       }
       #custom-sep {
         color: #${config.lib.stylix.colors.base03};
+      }
+      #custom-librewolf, #custom-thunderbird, #custom-obsidian, #custom-krita, #custom-steam {
+        padding: 0 12px;
+        color: #${config.lib.stylix.colors.base07};
+      }
+      #custom-librewolf:hover, #custom-thunderbird:hover, #custom-obsidian:hover, #custom-krita:hover, #custom-steam:hover {
+        color: #${config.lib.stylix.colors.base0A};
       }
       #custom-logo {
         color: #${config.lib.stylix.colors.base0A};
