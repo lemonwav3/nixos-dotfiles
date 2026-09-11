@@ -141,6 +141,7 @@
       #custom-librewolf, #custom-thunderbird, #custom-obsidian, #custom-krita, #custom-steam {
         padding: 0 12px;
         color: #${config.lib.stylix.colors.base07};
+        font-size: 18px;
       }
       #custom-librewolf:hover, #custom-thunderbird:hover, #custom-obsidian:hover, #custom-krita:hover, #custom-steam:hover {
         color: #${config.lib.stylix.colors.base0A};
