@@ -100,6 +100,9 @@
       };
       "hyprland/workspaces" = {
         format = "{name}";
+        persistent-workspaces = {
+          "*" = 10;
+        };
       };
       network = {
         format = "Online";
