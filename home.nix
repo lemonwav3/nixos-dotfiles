@@ -209,31 +209,31 @@
       {
         "label" : "lock",
         "action" : "loginctl lock-session",
-        "text" : "Lock",
+        "text" : "",
         "keybind" : "l"
       }
       {
         "label" : "logout",
         "action" : "loginctl terminate-user $USER",
-        "text" : "Logout",
+        "text" : "",
         "keybind" : "e"
       }
       {
         "label" : "suspend",
         "action" : "systemctl suspend",
-        "text" : "Suspend",
+        "text" : "",
         "keybind" : "u"
       }
       {
         "label" : "shutdown",
         "action" : "systemctl poweroff",
-        "text" : "Shutdown",
+        "text" : "",
         "keybind" : "s"
       }
       {
         "label" : "reboot",
         "action" : "systemctl reboot",
-        "text" : "Reboot",
+        "text" : "",
         "keybind" : "r"
       }
     '';
