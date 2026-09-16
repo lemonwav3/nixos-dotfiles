@@ -8,5 +8,6 @@
   thunderbird
   bitwarden-desktop
   megasync
+  picard
   ];
 }
