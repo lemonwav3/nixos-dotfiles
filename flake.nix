@@ -11,9 +11,13 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    qylock = {
+      url = "github:Darkkal44/qylock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, stylix, ... }: {
+  outputs = { nixpkgs, home-manager, stylix, qylock, ... }: {
     nixosConfigurations.hyprland-btw = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -21,6 +25,8 @@
 	home-manager.nixosModules.home-manager
 
 	stylix.nixosModules.stylix
+
+	qylock.nixosModules.default
 	
 	{
 	  home-manager = {

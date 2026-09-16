@@ -158,6 +158,26 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", function()
+    local cursor = hl.get_cursor_pos()
+    local mon = hl.get_monitor_at_cursor()
+    if cursor and mon then
+        local awid = mon.active_workspace and mon.active_workspace.id
+        local target
+        for _, w in ipairs(hl.get_windows()) do
+            if w.mapped and w.visible and w.accepts_input and w.monitor and w.monitor.id == mon.id and awid and w.workspace and w.workspace.id == awid then
+                local at, size = w.at, w.size
+                local wx, wy = type(at) == "table" and (at[1] or at.x or 0) or 0, type(at) == "table" and (at[2] or at.y or 0) or 0
+                local ww, wh = type(size) == "table" and (size[1] or size.w or 0) or 0, type(size) == "table" and (size[2] or size.h or 0) or 0
+                if wx <= cursor.x and cursor.x < wx + ww and wy <= cursor.y and cursor.y < wy + wh then
+                    if w.floating then target = w elseif not target or not target.floating then target = w end
+                end
+            end
+        end
+        if target then hl.dispatch(hl.dsp.focus({ window = "address:" .. target.address })) end
+    end
+    hl.dispatch(hl.dsp.window.fullscreen())
+end)
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(reloadWaybar))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(snip))

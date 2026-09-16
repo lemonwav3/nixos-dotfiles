@@ -51,7 +51,15 @@
         "custom/krita"
         "custom/steam"
       ];
-      modules-right = [ "network" "custom/sep" "clock" ];
+      modules-right = [
+        "power-profiles-daemon"
+        "custom/sep"
+        "custom/powercap"
+        "custom/sep"
+        "network"
+        "custom/sep"
+        "clock"
+      ];
       "custom/logo" = {
         format = " ";
         on-click = "wlogout";
@@ -59,6 +67,38 @@
       "custom/sep" = {
         format = "|";
         interval = 0;
+      };
+      "power-profiles-daemon" = {
+        format = "{icon}";
+        "format-icons" = {
+          default = " ";
+          power-saver = " ";
+          balanced = " ";
+          performance = " ";
+        };
+        tooltip = false;
+      };
+      "custom/powercap" = {
+        exec = ''
+          p=/sys/bus/wmi/drivers/acer-wmi-battery/health_mode
+          v="$(cat "$p" 2>/dev/null)"
+          if [ "$v" = "1" ]; then
+            printf " \uf1e6 "
+          else
+            printf " \uf240 "
+          fi
+        '';
+        on-click = ''
+          p=/sys/bus/wmi/drivers/acer-wmi-battery/health_mode
+          v="$(cat "$p" 2>/dev/null)"
+          if [ "$v" = "1" ]; then
+            echo 0 > "$p"
+          else
+            echo 1 > "$p"
+          fi
+        '';
+        interval = 5;
+        tooltip = false;
       };
       "custom/librewolf" = {
         format = " ";
