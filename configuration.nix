@@ -23,6 +23,11 @@
     name = "JetBrainsMono Nerd Font";
     package = pkgs.nerd-fonts.jetbrains-mono;
   };
+  stylix.cursor = {
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
 
   # Fonts
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
@@ -43,6 +48,9 @@
 
   # Power profiles: power-saver / balanced / performance (cycled from waybar).
   services.power-profiles-daemon.enable = true;
+
+  # zram swap: guards rebuilds/compilation against OOM (no disk swap currently).
+  zramSwap.enable = true;
 
   # Acer battery health control (80% charge limit). Out-of-tree WMI driver.
   boot.extraModulePackages = [
@@ -104,10 +112,38 @@
   # services.xserver.displayManager.lightdm.enable = true;
   # services.displayManager.defaultSession = "hyprland";
 
-  # SDDM
+  # SDDM. The X11 greeter is a no-go on this hybrid AMD/NVIDIA laptop
+  # (no /dev/dri/card0 for the AMD iGPU when the amdgpu firmware glitches, and
+  # no NVIDIA Xorg config -> "no screens found", black screen), so use the
+  # Wayland greeter (Weston) and give it a cursor theme to draw.
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+    # kwin renders the greeter's pointer reliably; weston's kiosk shell does
+    # not honour the XCURSOR_* env fallback, so its cursor never appears.
+    wayland.compositor = "kwin";
+    settings = {
+      General = {
+        # Qt greeter: draw its own pointer on the Wayland backend. Comma-separated
+        # KEY=VALUE pairs, per the SDDM config format. layer-shell is required by
+        # the kwin compositor and must be kept alongside the XCURSOR overrides.
+        GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell,XCURSOR_THEME=Bibata-Modern-Ice,XCURSOR_SIZE=24,XCURSOR_PATH=/run/current-system/sw/share/icons";
+      };
+      Theme = {
+        CursorTheme = "Bibata-Modern-Ice";
+        CursorSize = 24;
+      };
+    };
+  };
+  services.displayManager.defaultSession = "hyprland";
+
+  # Weston only renders a pointer if it can load an xcursor theme; it falls back
+  # to XCURSOR_* env vars, so point the whole display-manager stack
+  # (SDDM daemon -> Weston greeter) at the system cursor theme.
+  systemd.services.display-manager.environment = {
+    XCURSOR_THEME = "Bibata-Modern-Ice";
+    XCURSOR_SIZE = "24";
+    XCURSOR_PATH = "/run/current-system/sw/share/icons";
   };
 
   # Qylock lockscreen themes (installs the SDDM greeter + qylock-lock wrapper).
