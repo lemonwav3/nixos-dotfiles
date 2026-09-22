@@ -6,14 +6,12 @@
     neovim
 
     # Terminal emulators
-    kitty 
     foot
 
     # File explorers
     kdePackages.dolphin
     
     # Application launchers
-    rofi
     wofi
 
     # Browsers
