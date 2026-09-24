@@ -2,6 +2,7 @@
 , stdenv
 , fetchurl
 , autoPatchelfHook
+, makeWrapper
 , alsa-lib
 , libxxf86vm
 , libxtst
@@ -27,6 +28,11 @@
 , cups
 , pango
 , cairo
+, gtk2
+, gtk3
+, gdk-pixbuf
+, libGL
+, libGLU
 , systemd
 }:
 
@@ -45,6 +51,7 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     autoPatchelfHook
+    makeWrapper
   ];
 
   buildInputs = [
@@ -74,6 +81,11 @@ stdenv.mkDerivation {
     cups
     pango
     cairo
+    gtk2
+    gtk3
+    gdk-pixbuf
+    libGL
+    libGLU
     systemd
   ];
 
@@ -90,6 +102,14 @@ stdenv.mkDerivation {
       -e "s|Exec=|Exec=$out/bin/|g" \
       -e "s|Terminal=.*$|Terminal=true|g" \
       $out/share/applications/*.desktop
+
+    for b in scilab xcos scinotes; do
+      wrapProgram $out/bin/$b \
+        --prefix LD_LIBRARY_PATH : "${gtk2}/lib:${gdk-pixbuf}/lib:${libGL}/lib:${libGLU}/lib:${mesa}/lib" \
+        --set JAVA_TOOL_OPTIONS "-Djdk.gtk.version=2" \
+        --set LIBGL_ALWAYS_SOFTWARE 1 \
+        --set LIBGL_DRIVERS_PATH "${mesa}/lib/dri"
+    done
 
     runHook postInstall
   '';
