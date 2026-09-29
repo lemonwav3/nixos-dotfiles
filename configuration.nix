@@ -16,11 +16,13 @@
       ./modules/system/productivity.nix
       ./modules/system/rest.nix
     ];
+  # Add Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.package = pkgs.bluezFull;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "26.05"; # Did you read the comment?
-
+  system.stateVersion = "26.05";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
