@@ -52,7 +52,7 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = { "rgba(fabd2fee)", "rgba(8ec07cee)" }, angle = 45 },
+            active_border   = "rgba(fabd2fee)",
             inactive_border = "rgba(595959aa)",
         },
 
