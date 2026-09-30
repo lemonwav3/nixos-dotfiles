@@ -17,9 +17,11 @@
       ./modules/system/rest.nix
     ];
   # Add Bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.package = pkgs.bluezFull;
-
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+  services.blueman.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
