@@ -19,17 +19,10 @@
 │   │   ├── waybar.nix
 │   │   └── wlogout.nix
 │   └── system/
-│       ├── boot.nix
-│       ├── display.nix
-│       ├── locale.nix
-│       ├── networking.nix
-│       ├── power.nix
 │       ├── productivity.nix
 │       ├── rest.nix
-│       ├── services.nix
 │       ├── styling.nix
-│       ├── system.nix
-│       └── users.nix
+│       └── system.nix
 ├── patches/
 │   └── waybar-lua-dispatch.patch
 ├── pkgs/
