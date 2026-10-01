@@ -7,6 +7,7 @@
 
     # Terminal emulators
     foot
+    kitty 
 
     # File explorers
     kdePackages.dolphin
