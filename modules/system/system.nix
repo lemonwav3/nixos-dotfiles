@@ -21,7 +21,6 @@
     # System utils 
     btop # system monitor
     dysk # storage monitor
-    opencode # LLM frontend
     git
     hyprpaper
     grim # Screenshots?
