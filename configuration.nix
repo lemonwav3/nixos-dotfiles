@@ -7,7 +7,7 @@
       ./modules/system/styling.nix
       ./modules/system/system.nix
       ./modules/system/productivity.nix
-      ./modules/system/rest.nix
+      ./modules/system/gaming.nix
     ];
   # --- BOOT ---
   # Use the systemd-boot EFI boot loader
