@@ -15,6 +15,9 @@
     # Application launchers
     wofi
 
+    # Music players
+    rmpc
+    
     # Browsers
     librewolf
 
