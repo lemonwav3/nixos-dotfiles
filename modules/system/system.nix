@@ -33,7 +33,8 @@
     pkgs.zapzap
     localsend
     ytdownloader
-    wget	
+    wget
+    qbittorrent
 
     # System-wide cursor theme for the Wayland SDDM greeter (Weston only draws
     # a pointer if the theme exists in its XCURSOR_PATH).
