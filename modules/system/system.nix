@@ -35,6 +35,7 @@
     ytdownloader
     wget
     qbittorrent
+    clamav
 
     # System-wide cursor theme for the Wayland SDDM greeter (Weston only draws
     # a pointer if the theme exists in its XCURSOR_PATH).
