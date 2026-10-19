@@ -65,7 +65,7 @@
       };
     };
   };
-  services.displayManager.defaultSession = "hyprland";
+  services.displayManager.defaultSession = "hyprland-uwsm";
 
   # Weston only renders a pointer if it can load an xcursor theme; it falls back
   # to XCURSOR_* env vars, so point the whole display-manager stack
