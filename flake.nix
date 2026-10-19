@@ -18,7 +18,7 @@
   };
 
   outputs = { nixpkgs, home-manager, stylix, qylock, ... }: {
-    nixosConfigurations.hyprland-btw = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos-machine = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
