@@ -8,6 +8,7 @@
     ./modules/home/hypr.nix
     ./modules/home/foot.nix
     ./modules/home/wlogout.nix
+    ./modules/home/lock.nix
   ];
 
   home.username = "tali";
