@@ -31,6 +31,8 @@
         "custom/steam"
       ];
       modules-right = [
+        "tray"
+	"custom/sep"
         "power-profiles-daemon"
         "custom/sep"
         "custom/powercap"
@@ -47,6 +49,7 @@
         format = "|";
         interval = 0;
       };
+      tray = { spacing = 8; };
       "power-profiles-daemon" = {
         format = "{icon}";
         "format-icons" = {

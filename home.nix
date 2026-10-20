@@ -9,6 +9,7 @@
     ./modules/home/foot.nix
     ./modules/home/wlogout.nix
     ./modules/home/lock.nix
+    ./modules/home/desktop.nix
   ];
 
   home.username = "tali";
