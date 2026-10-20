@@ -35,7 +35,4 @@
     # a pointer if the theme exists in its XCURSOR_PATH).
     bibata-cursors
   ];
-  services.clamav = {
-    updater.enable = true;
-  };
 }
