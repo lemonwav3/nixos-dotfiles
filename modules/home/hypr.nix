@@ -6,4 +6,5 @@
     recursive = true;
     force = true;
   };
+  services.hyprpaper.enable = true;
 }

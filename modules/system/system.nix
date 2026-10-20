@@ -18,7 +18,6 @@
     btop # system monitor
     dysk # storage monitor
     git
-    hyprpaper
     grim # Screenshots?
     slurp # Screenshots
     wl-clipboard
