@@ -3,17 +3,10 @@
   environment.systemPackages = with pkgs; [
     # Code editors
     vim 
-    neovim
-
-    # Terminal emulators
-    foot
-    kitty 
+    neovim 
 
     # File explorers
     kdePackages.dolphin
-    
-    # Application launchers
-    wofi
 
     # Music players
     rmpc

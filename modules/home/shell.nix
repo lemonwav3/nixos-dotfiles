@@ -16,4 +16,7 @@
       init.defaultBranch = "main";
     };
   };
+
+  programs.kitty.enable = true;
+  programs.wofi.enable = true;
 }
