@@ -198,4 +198,14 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   security.pam.services.hyprlock = {};
+  #
+
+  # --- CLEANUP ---
+  boot.loader.systemd-boot.configurationLimit = 10;  # keeps /boot from filling up
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
 }
