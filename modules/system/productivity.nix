@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs;[
   obsidian
   krita
+  inkscape
   (pkgs.callPackage ../../pkgs/scilab.nix { })
   onlyoffice-desktopeditors
   thunderbird
