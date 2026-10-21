@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, stylix, qylock, ... }: {
+  outputs = { nixpkgs, home-manager, stylix, qylock, nvf, ... }: {
     nixosConfigurations.nixos-machine = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -37,6 +37,7 @@
 	    useGlobalPkgs = true;
 	    useUserPackages = true;
 	    users.tali = import ./home.nix;
+	    sharedModules = [ nvf.homeManagerModules.default ];
 	    backupFileExtension = "backup";
 	  };
 	}

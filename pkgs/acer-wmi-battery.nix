@@ -1,4 +1,4 @@
-{ lib, stdenv, kernel, fetchFromGitHub }:
+{ lib, stdenv, kernel, kernelModuleMakeFlags, fetchFromGitHub }:
 
 stdenv.mkDerivation {
   pname = "acer-wmi-battery";
@@ -11,20 +11,23 @@ stdenv.mkDerivation {
     sha256 = "sha256-CyKRpE3cnhEIFHc4Hal2PQUW7cd5k8+55S4QdSqGvNI=";
   };
 
+  hardeningDisable = [ "pic" ];
+
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
   buildPhase = ''
     runHook preBuild
-    make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
+    make ${lib.escapeShellArgs kernelModuleMakeFlags} \
+      -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
       M="$PWD" modules
     runHook postBuild
   '';
 
   installPhase = ''
     runHook preInstall
-    mkdir -p "$out/lib/modules/${kernel.modDirVersion}/extra/"
-    install -m 0644 acer-wmi-battery.ko \
-      "$out/lib/modules/${kernel.modDirVersion}/extra/acer-wmi-battery.ko"
+    make ${lib.escapeShellArgs kernelModuleMakeFlags} \
+      -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
+      M="$PWD" INSTALL_MOD_PATH="$out" INSTALL_MOD_DIR=extra modules_install
     runHook postInstall
   '';
 
