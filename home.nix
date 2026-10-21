@@ -10,6 +10,7 @@
     ./modules/home/wlogout.nix
     ./modules/home/lock.nix
     ./modules/home/desktop.nix
+    ./modules/home/nvf.nix
   ];
 
   home.username = "tali";
