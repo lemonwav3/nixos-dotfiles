@@ -1,7 +1,15 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.waybar = {
+  options.my.waybar.center = lib.mkOption {
+    type = lib.types.listOf lib.types.str;
+    default = [ ];
+    description = "Launcher modules shown in the centre of waybar.";
+  };
+
+
+
+  config.programs.waybar = {
     enable = true;
     package = pkgs.waybar.overrideAttrs (old: {
       patches = (old.patches or []) ++ [ ../../patches/waybar-lua-dispatch.patch ];
@@ -23,13 +31,7 @@
         "custom/sep"
         "hyprland/workspaces"
       ];
-      modules-center = [
-        "custom/librewolf"
-        "custom/thunderbird"
-        "custom/obsidian"
-        "custom/krita"
-        "custom/steam"
-      ];
+      modules-center = config.my.waybar.center;
       modules-right = [
         "tray"
 	"custom/sep"

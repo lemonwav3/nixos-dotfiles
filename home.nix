@@ -16,4 +16,17 @@
   home.username = "tali";
   home.homeDirectory = "/home/tali";
   home.stateVersion = "26.05";
+
+  my.waybar.center = [
+    "custom/librewolf" "custom/thunderbird" "custom/obsidian" "custom/krita" "custom/steam"
+  ];
+
+  programs.git = {
+    enable = true;
+    settings = {
+      user.name = "Tali";
+      user.email = "example @ example.com";
+      init.defaultBranch = "main";
+    };
+  };
 }

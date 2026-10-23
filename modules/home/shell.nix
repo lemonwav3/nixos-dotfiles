@@ -8,15 +8,6 @@
     };
   };
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user.name = "Tali";
-      user.email = "example@example.com";
-      init.defaultBranch = "main";
-    };
-  };
-
   programs.kitty.enable = true;
   programs.wofi.enable = true;
 }

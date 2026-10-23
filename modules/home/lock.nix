@@ -11,7 +11,7 @@
       };
       listener = [
         { timeout = 300; on-timeout = "loginctl lock-session"; }
-        { timeout = 600; on-timeout = "systemctl suspend"; }
+        { timeout = 600; on-timeout = "[ \"$(loginctl show-session self -p Active --value)\" = yes ] && systemctl suspend"; }
       ];
     };
   };

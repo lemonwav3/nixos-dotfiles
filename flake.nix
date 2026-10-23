@@ -37,6 +37,7 @@
 	    useGlobalPkgs = true;
 	    useUserPackages = true;
 	    users.tali = import ./home.nix;
+            users.game = import ./home-game.nix;
 	    sharedModules = [ nvf.homeManagerModules.default ];
 	    backupFileExtension = "backup";
 	  };

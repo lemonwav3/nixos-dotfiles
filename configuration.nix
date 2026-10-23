@@ -8,6 +8,7 @@
       ./modules/system/system.nix
       ./modules/system/productivity.nix
       ./modules/system/gaming.nix
+      ./modules/system/game.nix
     ];
   # --- BOOT ---
   # Use the systemd-boot EFI boot loader
@@ -162,6 +163,7 @@
     isNormalUser = true;
     description = "T";
     extraGroups = [ "networkmanager" "wheel" ];
+    homeMode = "700";
   };
   #
 
