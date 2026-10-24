@@ -36,8 +36,8 @@
 	  home-manager = {
 	    useGlobalPkgs = true;
 	    useUserPackages = true;
-	    users.tali = import ./home.nix;
-            users.game = import ./home-game.nix;
+	    users.tali = import ./users/tali;
+            users.game = import ./users/game;
 	    sharedModules = [ nvf.homeManagerModules.default ];
 	    backupFileExtension = "backup";
 	  };

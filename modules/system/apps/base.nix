@@ -36,4 +36,6 @@
     # a pointer if the theme exists in its XCURSOR_PATH).
     bibata-cursors
   ];
+
+  programs.firefox.enable = true;
 }

@@ -4,7 +4,7 @@
   obsidian
   krita
   inkscape
-  (pkgs.callPackage ../../pkgs/scilab.nix { })
+  (pkgs.callPackage ../../../pkgs/scilab.nix { })
   onlyoffice-desktopeditors
   thunderbird
   bitwarden-desktop

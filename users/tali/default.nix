@@ -2,15 +2,15 @@
 
 {
   imports = [
-    ./modules/home/shell.nix
-    ./modules/home/packages.nix
-    ./modules/home/waybar.nix
-    ./modules/home/hypr.nix
-    ./modules/home/foot.nix
-    ./modules/home/wlogout.nix
-    ./modules/home/lock.nix
-    ./modules/home/desktop.nix
-    ./modules/home/nvf.nix
+    ../../modules/home/shell.nix
+    ../../modules/home/packages.nix
+    ../../modules/home/waybar.nix
+    ../../modules/home/foot.nix
+    ../../modules/home/wlogout.nix
+    ../../modules/home/lock.nix
+    ../../modules/home/desktop.nix
+    ../../modules/home/nvf.nix
+    ../../modules/home/hypr.nix
   ];
 
   home.username = "tali";
