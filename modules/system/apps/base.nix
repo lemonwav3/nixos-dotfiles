@@ -22,7 +22,7 @@
     slurp # Screenshots
     wl-clipboard
     fastfetch
-    pkgs.zapzap
+    zapzap
     localsend
     ytdownloader
     wget
