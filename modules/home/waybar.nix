@@ -104,6 +104,14 @@
         format = " ";
         on-click = "steam";
       };
+      "custom/lutris" = {
+        format = "󰊖";
+        on-click = "lutris";
+      };
+      "custom/vesktop" = {
+        format = "";
+        on-click = "vesktop";
+      };
       battery = {
         format = "{icon} {capacity}%";
         format-charging = "  {capacity}%";

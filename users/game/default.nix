@@ -16,5 +16,5 @@
 
   stylix.image = lib.mkForce ../../wallpapers/wallpaper.png;
 
-  my.waybar.center = [ "custom/steam" ];
+  my.waybar.center = [ "custom/librewolf" "custom/vesktop" "custom/lutris" "custom/steam" ];
 }
