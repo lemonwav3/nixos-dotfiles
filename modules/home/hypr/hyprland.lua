@@ -61,7 +61,7 @@ hl.config({
 
     decoration = {
         rounding       = 0,
-        rounding_power = 0,
+        rounding_power = 1.00,
 
         active_opacity   = 1.0,
         inactive_opacity = 1.0,
@@ -134,7 +134,7 @@ hl.config({
 
 hl.config({
     cursor = {
-        inactive_timeout    = 30,
+        inactive_timeout    = 20,
         no_hardware_cursors = true,
     },
 })
