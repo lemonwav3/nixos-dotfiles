@@ -105,11 +105,11 @@
         on-click = "steam";
       };
       "custom/lutris" = {
-        format = "󰊖";
+        format = "󰊖 ";
         on-click = "lutris";
       };
       "custom/vesktop" = {
-        format = "";
+        format = " ";
         on-click = "vesktop";
       };
       battery = {
