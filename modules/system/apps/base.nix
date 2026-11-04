@@ -31,6 +31,7 @@
     kdePackages.kio-extras
     kdePackages.ark
     lazygit
+    udisks2
 
     # System-wide cursor theme for the Wayland SDDM greeter (Weston only draws
     # a pointer if the theme exists in its XCURSOR_PATH).
@@ -38,4 +39,5 @@
   ];
 
   programs.firefox.enable = true;
+  services.udisks2.enable=true;
 }
