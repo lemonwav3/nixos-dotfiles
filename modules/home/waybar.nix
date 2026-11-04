@@ -93,7 +93,7 @@
         on-click = "thunderbird";
       };
       "custom/obsidian" = {
-        format = " ";
+        format = "";
         on-click = "obsidian";
       };
       "custom/krita" = {
