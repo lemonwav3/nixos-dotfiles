@@ -1,13 +1,15 @@
 { config, lib, pkgs, ... }:
-
+let
+  theme = import ../../themes/gruvbox-dark-medium.nix;
+in
 {
   # Add Stylix
   stylix.enable = true;
   stylix.autoEnable = true;
-  stylix.polarity = "dark";
+  stylix.base16Scheme = theme;
+  stylix.polarity = theme.polarity;
   stylix.opacity.terminal = 0.9;
-  stylix.base16Scheme = import ../../themes/gruvbox-dark-medium.nix;
-  stylix.image = ../../wallpapers/nasa.png;
+  stylix.image = ../../wallpapers/wallpaper.png;
   stylix.fonts.monospace = {
     name = "JetBrainsMono Nerd Font";
     package = pkgs.nerd-fonts.jetbrains-mono;

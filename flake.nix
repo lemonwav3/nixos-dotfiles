@@ -38,7 +38,10 @@
 	    useUserPackages = true;
 	    users.tali = import ./users/tali;
             users.game = import ./users/game;
-	    sharedModules = [ nvf.homeManagerModules.default ];
+	    sharedModules = [ 
+              nvf.homeManagerModules.default 
+              ./modules/home/theme.nix
+            ];
 	    backupFileExtension = "backup";
 	  };
 	}

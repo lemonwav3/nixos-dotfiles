@@ -45,7 +45,7 @@
         font-weight: bold;
       }
       window {
-        background-color: rgba(40, 40, 40, 0.9);
+        background-color: rgba(<r>, <g>, <b>, 0.9);
       }
       button {
         border-radius: 0;

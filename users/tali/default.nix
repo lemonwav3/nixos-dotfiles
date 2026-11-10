@@ -17,6 +17,11 @@
   home.homeDirectory = "/home/tali";
   home.stateVersion = "26.05";
 
+  my.theme = {
+    name = "gruvbox-dark-medium";
+    wallpaper = ../../wallpapers/nasa.png;
+  };
+
   my.waybar.center = [
     "custom/librewolf" "custom/thunderbird" "custom/obsidian" "custom/krita" "custom/steam"
   ];

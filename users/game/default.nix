@@ -14,7 +14,10 @@
   home.homeDirectory = "/home/game";
   home.stateVersion = "26.05";
 
-  stylix.image = lib.mkForce ../../wallpapers/wallpaper.png;
+  my.theme = {
+    name = "gruvbox-dark-medium";
+    wallpaper = ../../wallpapers/wallpaper.png;
+  };
 
   my.waybar.center = [ "custom/librewolf" "custom/vesktop" "custom/lutris" "custom/steam" ];
 }

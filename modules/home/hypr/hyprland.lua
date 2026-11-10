@@ -41,6 +41,8 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 ---- LOOK AND FEEL ----
 -----------------------
 
+local c = dofile(os.getenv("HOME") .. "/.config/hypr/colors.lua")
+
 hl.config({
     general = {
         gaps_in  = 2,
@@ -49,8 +51,8 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = "rgba(fabd2fee)",
-            inactive_border = "rgba(595959aa)",
+            active_border   = c.active_border,
+            inactive_border = c.inactive_border,
         },
 
         resize_on_border = false,
