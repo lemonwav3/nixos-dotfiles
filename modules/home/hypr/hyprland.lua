@@ -13,7 +13,7 @@ hl.monitor({
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal      = "kitty"
+local terminal      = "foot"
 local fileManager   = "dolphin"
 local menu          = "wofi --show drun"
 local reloadWaybar  = "pkill waybar; waybar &"
