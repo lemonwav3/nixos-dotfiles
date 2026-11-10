@@ -15,8 +15,8 @@
   home.stateVersion = "26.05";
 
   my.theme = {
-    name = "gruvbox-dark-medium";
-    wallpaper = ../../wallpapers/wallpaper.png;
+    name = "tokyo-night-dark";
+    wallpaper = ../../wallpapers/minecraft1.jpg;
   };
 
   my.waybar.center = [ "custom/librewolf" "custom/vesktop" "custom/lutris" "custom/steam" ];
