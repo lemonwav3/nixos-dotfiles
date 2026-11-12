@@ -32,6 +32,11 @@
     kdePackages.ark
     lazygit
     udisks2
+    
+    (python3.withPackages (ps: with ps; [
+      dbus-python
+  # add other python libs your script needs, e.g. pygobject3
+    ]))
 
     # System-wide cursor theme for the Wayland SDDM greeter (Weston only draws
     # a pointer if the theme exists in its XCURSOR_PATH).
