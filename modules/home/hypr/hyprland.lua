@@ -204,6 +204,7 @@ hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_S
 hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl set 1%+"),                         { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 1%-"),                         { locked = true, repeating = true })
 
+
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
