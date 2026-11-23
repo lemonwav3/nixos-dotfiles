@@ -16,7 +16,7 @@
 
   my.theme = {
     name = "tokyo-night-dark";
-    wallpaper = ../../wallpapers/minecraft1.jpg;
+    wallpaper = ../../wallpapers/hornet.jpg;
   };
 
   my.waybar.center = [ "custom/librewolf" "custom/vesktop" "custom/lutris" "custom/steam" ];
